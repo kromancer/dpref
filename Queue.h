@@ -14,7 +14,7 @@ public:
 
   using Token = Token<T>;
   
-  explicit Queue(size_t Cap) : Capacity(Cap) { assert(Capacity > 0); }
+  explicit Queue(size_t Cap) : Capacity(Cap) { if (Capacity <= 0) throw std::runtime_error("Q Capacity must be > 0"); }
 
   void push(const T &Value) {
     std::unique_lock<std::mutex> Lock(Mutex);
@@ -23,10 +23,10 @@ public:
     ConsumerCV.notify_one();
   }
 
-  void pushControlToken() {
+  void pushTerminationToken(TerminationToken Tok) {
     std::unique_lock<std::mutex> Lock(Mutex);
     ProducerCV.wait(Lock, [this] { return Q.size() < Capacity; });
-    Q.push(Token());
+    Q.push(Token(Tok));
     Lock.unlock();
     ConsumerCV.notify_one();
   }

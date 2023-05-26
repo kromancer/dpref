@@ -1,32 +1,45 @@
 #pragma once
 
-#include <cassert>
-#include <optional>
+#include <stdexcept>
+#include <variant>
 
 namespace dpref {
+
+class TerminationToken {
+public:
+  explicit TerminationToken(bool Black = false) : IsBlack(Black) {}
+  void setBlack() { IsBlack = true; }
+  void setWhite() { IsBlack = false; }
+  bool isBlack() const { return IsBlack; }
+  bool isWhite() const { return !IsBlack; }
+
+private:
+  bool IsBlack;
+};
+
 template <typename T> class Token {
 public:
-  explicit Token(T Dat) : Data(std::move(Dat)) {}
+  Token(const T &D) : Data(D) {}
+  Token(TerminationToken TermToken) : Data(TermToken) {}
 
-  Token(Token &&Other) noexcept : Data(std::move(Other.Data)) {}
-
-  Token &operator=(Token &&Other) noexcept {
-    if (this != &Other) {
-      Data = std::move(Other.Data);
-    }
-    return *this;
+  bool isTerminationToken() const {
+    return std::holds_alternative<TerminationToken>(Data);
   }
 
-  Token() : Data(std::nullopt) {}
-
-  bool isControlToken() const { return !Data.has_value(); }
-
   T getData() const {
-    assert(Data.has_value());
-    return Data.value();
+    if (isTerminationToken())
+      throw std::runtime_error("Control token has no data!");
+    return std::get<T>(Data);
+  }
+
+  TerminationToken getTerminationToken() const {
+    if (!isTerminationToken())
+      throw std::runtime_error("Not a control token!");
+    return std::get<TerminationToken>(Data);
   }
 
 private:
-  std::optional<T> Data;
+  std::variant<T, TerminationToken> Data;
 };
+
 } // namespace dpref

@@ -4,6 +4,6 @@ project(dpref LANGUAGES CXX)
 
 add_compile_options("-ggdb3" "-O0")
 
-add_executable(Bfs Bfs.cpp)
-add_executable(BfsFirstSlicing BfsFirstSlicing.cpp)
+add_executable(Bfs main.cpp Bfs.cpp)
+add_executable(BfsFirstSlicing main.cpp BfsFirstSlicing.cpp)
 
