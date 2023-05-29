@@ -1,15 +1,26 @@
-
 [
 {
   "directory": "/Users/ioanniss/dpref/build",
-  "command": "/opt/homebrew/opt/llvm/bin/clang++ -std=c++2b -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -ggdb3 -O0 -o CMakeFiles/Bfs.dir/Bfs.cpp.o -c /Users/ioanniss/dpref/Bfs.cpp",
-  "file": "/Users/ioanniss/dpref/Bfs.cpp",
-  "output": "CMakeFiles/Bfs.dir/Bfs.cpp.o"
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -std=c++2b -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -ggdb3 -O0 -o CMakeFiles/BFS.dir/main.cpp.o -c /Users/ioanniss/dpref/main.cpp",
+  "file": "/Users/ioanniss/dpref/main.cpp",
+  "output": "CMakeFiles/BFS.dir/main.cpp.o"
 },
 {
   "directory": "/Users/ioanniss/dpref/build",
-  "command": "/opt/homebrew/opt/llvm/bin/clang++ -std=c++2b -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -ggdb3 -O0 -o CMakeFiles/BfsFirstSlicing.dir/BfsFirstSlicing.cpp.o -c /Users/ioanniss/dpref/BfsFirstSlicing.cpp",
-  "file": "/Users/ioanniss/dpref/BfsFirstSlicing.cpp",
-  "output": "CMakeFiles/BfsFirstSlicing.dir/BfsFirstSlicing.cpp.o"
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -std=c++2b -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -ggdb3 -O0 -o CMakeFiles/BFS.dir/BFS.cpp.o -c /Users/ioanniss/dpref/BFS.cpp",
+  "file": "/Users/ioanniss/dpref/BFS.cpp",
+  "output": "CMakeFiles/BFS.dir/BFS.cpp.o"
+},
+{
+  "directory": "/Users/ioanniss/dpref/build",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -std=c++2b -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -ggdb3 -O0 -o CMakeFiles/BFSFirstSlicing.dir/main.cpp.o -c /Users/ioanniss/dpref/main.cpp",
+  "file": "/Users/ioanniss/dpref/main.cpp",
+  "output": "CMakeFiles/BFSFirstSlicing.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/ioanniss/dpref/build",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -std=c++2b -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -ggdb3 -O0 -o CMakeFiles/BFSFirstSlicing.dir/BFSFirstSlicing.cpp.o -c /Users/ioanniss/dpref/BFSFirstSlicing.cpp",
+  "file": "/Users/ioanniss/dpref/BFSFirstSlicing.cpp",
+  "output": "CMakeFiles/BFSFirstSlicing.dir/BFSFirstSlicing.cpp.o"
 }
 ]

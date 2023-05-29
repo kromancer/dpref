@@ -1,7 +1,7 @@
 #include <iostream>
 #include <span>
 
-#include "Bfs.h"
+#include "BFS.h"
 #include "Vertex.h"
 
 using namespace std;

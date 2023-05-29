@@ -115,7 +115,7 @@ void secondSliceThreadFunction(dpref::Queue<tuple<NodeID, Vertex *>> *InQ,
 #pragma clang diagnostic ignored "-Wunsafe-buffer-usage"
 
 // Arranges the dataflow network
-void bfs(NodeID Root, const size_t *__restrict Offsets,
+void BFS(NodeID Root, const size_t *__restrict Offsets,
          const NodeID *__restrict Neighbors, Vertex *__restrict Vertices) {
 
   // from first slice -> second slice
