@@ -1,3 +1,5 @@
+#include "BFS.h"
+
 #include <iostream>
 #include <thread>
 #include <tuple>

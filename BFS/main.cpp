@@ -37,7 +37,7 @@ int main() {
 
   Vertex Vertices[NumOfVertices];
 
-  bfs(0, Offsets, Neighbors, Vertices);
+  BFS(0, Offsets, Neighbors, Vertices);
 
   for (auto &V:span<Vertex>{Vertices})
     cout << "Parent of " << V.Id << " is " << V.Parent << endl;

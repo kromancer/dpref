@@ -1,3 +1,5 @@
+#include "BFS.h"
+
 #include <cassert>
 #include <cstddef>
 #include <iostream>
@@ -14,7 +16,7 @@ using namespace std;
  */
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunsafe-buffer-usage"
-void bfs(const NodeID Root,
+void BFS(const NodeID Root,
 	 const size_t * __restrict Offsets,
 	 const NodeID * __restrict Neighbors,
 	 Vertex * __restrict Vertices) {
