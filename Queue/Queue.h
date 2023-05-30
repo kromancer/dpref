@@ -9,26 +9,29 @@
 
 namespace dpref {
 
+constexpr size_t MaxQCap = 12;
+  
 template <typename T> class Queue {
 public:
 
   using Token = Token<T>;
   
-  explicit Queue(size_t Cap) : Capacity(Cap) { if (Capacity <= 0) throw std::runtime_error("Q Capacity must be > 0"); }
+  explicit Queue(size_t Cap=MaxQCap) : Capacity(Cap) { if (Capacity <= 0) throw std::runtime_error("Q Capacity must be > 0"); }
 
   void push(const T &Value) {
-    std::unique_lock<std::mutex> Lock(Mutex);
-    ProducerCV.wait(Lock, [this] { return Q.size() < Capacity; });
-    Q.push(Token(Value));
-    ConsumerCV.notify_one();
+    pushToken(Token(Value));
+  }
+
+  void pushLoopTerminationToken(void) {
+    pushToken(Token(LoopTerminationToken()));
+  }
+  
+  void pushTerminationToken(void) {
+    pushTerminationToken(TerminationToken());
   }
 
   void pushTerminationToken(TerminationToken Tok) {
-    std::unique_lock<std::mutex> Lock(Mutex);
-    ProducerCV.wait(Lock, [this] { return Q.size() < Capacity; });
-    Q.push(Token(Tok));
-    Lock.unlock();
-    ConsumerCV.notify_one();
+    pushToken(Tok);
   }
 
   Token pop() {
@@ -52,6 +55,13 @@ private:
   std::mutex Mutex;
   std::condition_variable ProducerCV;
   std::condition_variable ConsumerCV;
+
+  void pushToken(Token Tok) {
+    std::unique_lock<std::mutex> Lock(Mutex);
+    ProducerCV.wait(Lock, [this] { return Q.size() < Capacity; });
+    Q.push(Tok);
+    ConsumerCV.notify_one();
+  }
 };
 
 } // namespace dpref

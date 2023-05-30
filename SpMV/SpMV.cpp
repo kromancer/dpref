@@ -8,8 +8,7 @@
 //
 // Option 1: Help the compiler "understand" if/where is the indirection
 //
-#pragma dpref indirection(X[ColIdx[Offsets]])
-#pragma dpref indirection(Values[Offsets])
+#pragma dpref indirection(Values[Offsets], X[ColIdx[Offsets]])
 void SpMV(const size_t N,
 	  const size_t * __restrict Offsets,
 	  const size_t * __restrict ColIdx,

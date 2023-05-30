@@ -17,13 +17,22 @@ private:
   bool IsBlack;
 };
 
+class LoopTerminationToken {
+  // Empty
+};
+
 template <typename T> class Token {
 public:
   Token(const T &D) : Data(D) {}
   Token(TerminationToken TermToken) : Data(TermToken) {}
+  Token(LoopTerminationToken LoopToken) : Data(LoopToken) {}
 
   bool isTerminationToken() const {
     return std::holds_alternative<TerminationToken>(Data);
+  }
+
+  bool isLoopTerminationToken() const {
+    return std::holds_alternative<LoopTerminationToken>(Data);
   }
 
   T getData() const {
@@ -39,7 +48,7 @@ public:
   }
 
 private:
-  std::variant<T, TerminationToken> Data;
+  std::variant<T, TerminationToken, LoopTerminationToken> Data;
 };
 
 } // namespace dpref

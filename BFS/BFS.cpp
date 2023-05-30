@@ -10,10 +10,6 @@
 
 using namespace std;
 
-/** Computes the parent of a vertex
-    in the BFS spanning tree of a given graph in CSR format,
-    from a given vertex as root.
- */
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunsafe-buffer-usage"
 void BFS(const NodeID Root,
