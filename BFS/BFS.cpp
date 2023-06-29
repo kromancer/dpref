@@ -12,25 +12,25 @@ using namespace std;
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunsafe-buffer-usage"
-void BFS(const NodeID Root,
+void BFS(const VertexID Root,
 	 const size_t * __restrict Offsets,
-	 const NodeID * __restrict Neighbors,
+	 const VertexID * __restrict Neighbors,
 	 Vertex * __restrict Vertices) {
   
-  queue<NodeID> Frontier;
+  queue<VertexID> Frontier;
 
   Frontier.push(Root);
   Vertices[Root].Parent = Root;
 
   while (!Frontier.empty()) {
 
-    NodeID V = Frontier.front();
+    VertexID V = Frontier.front();
     Frontier.pop();
 
     #pragma dpref hint loopCount(5)
     for (size_t I = Offsets[V]; I < Offsets[V + 1]; I++) {
 
-      NodeID NeighborId = Neighbors[I];
+      VertexID NeighborId = Neighbors[I];
       Vertex *Neighbor = &Vertices[NeighborId];
 
       /* Set parent, if not set */        

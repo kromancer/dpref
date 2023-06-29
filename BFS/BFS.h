@@ -1,8 +1,10 @@
 #pragma once
 
+#include <cstddef>
+
 #include "Vertex.h"
 
-void BFS(const NodeID Root,
+void BFS(const VertexID Root,
 	 const size_t * __restrict Offsets,
-	 const NodeID * __restrict Neighbors,
+	 const VertexID * __restrict Neighbors,
 	 Vertex * __restrict Vertices);

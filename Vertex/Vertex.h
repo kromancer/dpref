@@ -5,13 +5,12 @@
 
 constexpr size_t NotAVertex = SIZE_MAX;
 
-typedef size_t NodeID;
-
+typedef size_t VertexID;
 
 class Vertex {
 public:
   size_t Parent;
-  NodeID Id;
+  VertexID Id;
 
   Vertex(): Parent{NotAVertex}, Id{NumOfVertices++} {}
   ~Vertex() {
