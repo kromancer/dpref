@@ -14,7 +14,7 @@ constexpr size_t MaxQCap = 12;
 template <typename T> class Queue {
 public:
 
-  using Token = Token<T>;
+  using Token = dpref::Token<T>;
   
   explicit Queue(size_t Cap=MaxQCap) : Capacity(Cap) { if (Capacity <= 0) throw std::runtime_error("Q Capacity must be > 0"); }
 

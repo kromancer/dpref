@@ -1,4 +1,6 @@
 /.cache/
-/build/
+/build*/
 /.idea/
 /cmake-build-debug/
+/m5out/
+/gem5/README.org

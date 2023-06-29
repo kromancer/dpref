@@ -1,9 +1,9 @@
 #pragma once
 
-#include <climits>
 #include <cstddef>
+#include <cstdint>
 
-constexpr size_t NotAVertex = SIZE_T_MAX;
+constexpr size_t NotAVertex = SIZE_MAX;
 
 typedef size_t NodeID;
 
