@@ -16,14 +16,15 @@ constexpr size_t QueueSize = 12;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunsafe-buffer-usage"
 
-void firstSlice(NodeID V, const size_t *__restrict Offsets,
-                const NodeID *__restrict Neighbors, Vertex *__restrict Vertices,
-                dpref::Queue<tuple<NodeID, Vertex *>> *OutQ) {
+void firstSlice(VertexID V, const size_t *__restrict Offsets,
+                const VertexID *__restrict Neighbors,
+                Vertex *__restrict Vertices,
+                dpref::Queue<tuple<VertexID, Vertex *>> *OutQ) {
 
   /* Inner loop, enumerate neighbors */
   for (size_t I = Offsets[V]; I < Offsets[V + 1]; I++) {
 
-    NodeID NeighborId = Neighbors[I];
+    VertexID NeighborId = Neighbors[I];
 
     /* Visit neighbor */
     Vertex *Neighbor = &Vertices[NeighborId];
@@ -32,16 +33,16 @@ void firstSlice(NodeID V, const size_t *__restrict Offsets,
   }
 }
 
-void firstSliceThreadFunction(NodeID Root, const size_t *__restrict Offsets,
-                              const NodeID *__restrict Neighbors,
+void firstSliceThreadFunction(VertexID Root, const size_t *__restrict Offsets,
+                              const VertexID *__restrict Neighbors,
                               Vertex *__restrict Vertices,
-                              dpref::Queue<NodeID> *InQ,
-                              dpref::Queue<tuple<NodeID, Vertex *>> *OutQ) {
+                              dpref::Queue<VertexID> *InQ,
+                              dpref::Queue<tuple<VertexID, Vertex *>> *OutQ) {
 
-  NodeID V = Root;
+  VertexID V = Root;
   OutQ->push(make_tuple(Root, &Vertices[Root]));
   firstSlice(V, Offsets, Neighbors, Vertices, OutQ);
-  
+
   OutQ->pushTerminationToken(dpref::TerminationToken());
 
   for (;;) {
@@ -49,7 +50,7 @@ void firstSliceThreadFunction(NodeID Root, const size_t *__restrict Offsets,
     auto Token = InQ->pop();
 
     if (Token.isTerminationToken()) {
-  
+
       auto TermToken = Token.getTerminationToken();
 
       if (TermToken.isWhite()) {
@@ -63,16 +64,15 @@ void firstSliceThreadFunction(NodeID Root, const size_t *__restrict Offsets,
 
       V = Token.getData();
       firstSlice(V, Offsets, Neighbors, Vertices, OutQ);
-      
     }
   }
 }
 #pragma clang diagnostic pop
 
-bool secondSlice(NodeID V, Vertex *Neighbor, dpref::Queue<NodeID> *OutQ) {
+bool secondSlice(VertexID V, Vertex *Neighbor, dpref::Queue<VertexID> *OutQ) {
 
   bool IsBlack = false;
-  
+
   // Set parent, if not set
   if (Neighbor->Parent == NotAVertex) {
 
@@ -85,8 +85,8 @@ bool secondSlice(NodeID V, Vertex *Neighbor, dpref::Queue<NodeID> *OutQ) {
   return IsBlack;
 }
 
-void secondSliceThreadFunction(dpref::Queue<tuple<NodeID, Vertex *>> *InQ,
-                               dpref::Queue<NodeID> *OutQ) {
+void secondSliceThreadFunction(dpref::Queue<tuple<VertexID, Vertex *>> *InQ,
+                               dpref::Queue<VertexID> *OutQ) {
 
   bool IsBlack = false;
 
@@ -98,9 +98,9 @@ void secondSliceThreadFunction(dpref::Queue<tuple<NodeID, Vertex *>> *InQ,
       dpref::TerminationToken TermToken = Token.getTerminationToken();
 
       if (IsBlack) {
-	TermToken.setBlack();
-	OutQ->pushTerminationToken(TermToken);
-	IsBlack = false;
+        TermToken.setBlack();
+        OutQ->pushTerminationToken(TermToken);
+        IsBlack = false;
       } else {
         OutQ->pushTerminationToken(TermToken);
         return;
@@ -117,14 +117,14 @@ void secondSliceThreadFunction(dpref::Queue<tuple<NodeID, Vertex *>> *InQ,
 #pragma clang diagnostic ignored "-Wunsafe-buffer-usage"
 
 // Arranges the dataflow network
-void BFS(NodeID Root, const size_t *__restrict Offsets,
-         const NodeID *__restrict Neighbors, Vertex *__restrict Vertices) {
+void BFS(VertexID Root, const size_t *__restrict Offsets,
+         const VertexID *__restrict Neighbors, Vertex *__restrict Vertices) {
 
   // from first slice -> second slice
-  dpref::Queue<NodeID> Q1(QueueSize);
+  dpref::Queue<VertexID> Q1(QueueSize);
 
   // feedback Q, from second slice -> first slice
-  dpref::Queue<tuple<NodeID, Vertex *>> Q2(QueueSize);
+  dpref::Queue<tuple<VertexID, Vertex *>> Q2(QueueSize);
 
   thread FirstSliceThread(firstSliceThreadFunction, Root, Offsets, Neighbors,
                           Vertices, &Q1, &Q2);

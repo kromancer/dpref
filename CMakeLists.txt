@@ -9,6 +9,7 @@ add_compile_options("-std=c++2b" "-ggdb3" "-O0")
 add_link_options("$<$<PLATFORM_ID:Linux>:-static>")
 
 add_subdirectory(Queue)
+add_subdirectory(Vertex)
 add_subdirectory(SpMV)
 add_subdirectory(BFS)
-add_subdirectory(PR)
+
