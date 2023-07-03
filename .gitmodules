@@ -1,0 +1,3 @@
+[submodule "doc/ACACES.2023.abstract"]
+	path = doc/ACACES.2023.abstract
+	url = git@github.com:kromancer/ACACES.2023.git
