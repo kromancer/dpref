@@ -1,3 +1,6 @@
 [submodule "doc/ACACES.2023.abstract"]
 	path = doc/ACACES.2023.abstract
 	url = git@github.com:kromancer/ACACES.2023.git
+[submodule "doc/ACACES.2023.poster"]
+	path = doc/ACACES.2023.poster
+	url = git@github.com:kromancer/ACACES.2023.poster.git
