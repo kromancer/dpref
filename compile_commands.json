@@ -25,6 +25,18 @@
 },
 {
   "directory": "/Users/ioanniss/dpref/build",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/ioanniss/dpref/Queue/. -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=c++2b -ggdb3 -O0 -o SpMV/CMakeFiles/SpMVSecondSlicing.dir/main.cpp.o -c /Users/ioanniss/dpref/SpMV/main.cpp",
+  "file": "/Users/ioanniss/dpref/SpMV/main.cpp",
+  "output": "SpMV/CMakeFiles/SpMVSecondSlicing.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/ioanniss/dpref/build",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/ioanniss/dpref/Queue/. -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=c++2b -ggdb3 -O0 -o SpMV/CMakeFiles/SpMVSecondSlicing.dir/SpMVSecondSlicing.cpp.o -c /Users/ioanniss/dpref/SpMV/SpMVSecondSlicing.cpp",
+  "file": "/Users/ioanniss/dpref/SpMV/SpMVSecondSlicing.cpp",
+  "output": "SpMV/CMakeFiles/SpMVSecondSlicing.dir/SpMVSecondSlicing.cpp.o"
+},
+{
+  "directory": "/Users/ioanniss/dpref/build",
   "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/ioanniss/dpref/Vertex/. -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=c++2b -ggdb3 -O0 -o BFS/CMakeFiles/BFS.dir/main.cpp.o -c /Users/ioanniss/dpref/BFS/main.cpp",
   "file": "/Users/ioanniss/dpref/BFS/main.cpp",
   "output": "BFS/CMakeFiles/BFS.dir/main.cpp.o"
