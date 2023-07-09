@@ -35,8 +35,12 @@ public:
     return std::holds_alternative<LoopTerminationToken>(Data);
   }
 
+  bool isControlToken() const {
+    return isTerminationToken() || isLoopTerminationToken();
+  }
+
   T getData() const {
-    if (isTerminationToken())
+    if (isControlToken())
       throw std::runtime_error("Control token has no data!");
     return std::get<T>(Data);
   }
