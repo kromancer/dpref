@@ -10,6 +10,7 @@
 
 #include "CSRMatrix.h"
 #include "Utils.h"
+#include "smooth.h"
 
 using namespace std;
 

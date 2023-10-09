@@ -79,6 +79,12 @@
 },
 {
   "directory": "/Users/ioanniss/dpref/build",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -mmacosx-version-min=13.6 -std=c++2b -ggdb3 -O0 -o MG/CMakeFiles/MG.dir/smooth.cpp.o -c /Users/ioanniss/dpref/MG/smooth.cpp",
+  "file": "/Users/ioanniss/dpref/MG/smooth.cpp",
+  "output": "MG/CMakeFiles/MG.dir/smooth.cpp.o"
+},
+{
+  "directory": "/Users/ioanniss/dpref/build",
   "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/ioanniss/dpref/Queue/. -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -mmacosx-version-min=13.6 -std=c++2b -ggdb3 -O0 -o MG/CMakeFiles/MGFirstSlicing.dir/main.cpp.o -c /Users/ioanniss/dpref/MG/main.cpp",
   "file": "/Users/ioanniss/dpref/MG/main.cpp",
   "output": "MG/CMakeFiles/MGFirstSlicing.dir/main.cpp.o"
@@ -94,5 +100,11 @@
   "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/ioanniss/dpref/Queue/. -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -mmacosx-version-min=13.6 -std=c++2b -ggdb3 -O0 -o MG/CMakeFiles/MGFirstSlicing.dir/Utils.cpp.o -c /Users/ioanniss/dpref/MG/Utils.cpp",
   "file": "/Users/ioanniss/dpref/MG/Utils.cpp",
   "output": "MG/CMakeFiles/MGFirstSlicing.dir/Utils.cpp.o"
+},
+{
+  "directory": "/Users/ioanniss/dpref/build",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/ioanniss/dpref/Queue/. -Weverything -Wno-unknown-attributes -Wno-unknown-pragmas -Wno-sign-compare -Wno-sign-conversion -Wno-double-promotion -Wno-implicit-int-float-conversion -Wno-padded -Wno-c++98-compat -Wno-missing-prototypes -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -mmacosx-version-min=13.6 -std=c++2b -ggdb3 -O0 -o MG/CMakeFiles/MGFirstSlicing.dir/smoothFirstSlicing.cpp.o -c /Users/ioanniss/dpref/MG/smoothFirstSlicing.cpp",
+  "file": "/Users/ioanniss/dpref/MG/smoothFirstSlicing.cpp",
+  "output": "MG/CMakeFiles/MGFirstSlicing.dir/smoothFirstSlicing.cpp.o"
 }
 ]

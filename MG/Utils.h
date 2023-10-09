@@ -4,8 +4,6 @@
 
 #include "CSRMatrix.h"
 
-void smooth(const CSRMatrix &A, std::vector<double> &X, std::vector<double> &B);
-
 std::vector<double> calcResidual(const CSRMatrix &A, std::vector<double> &X, std::vector<double> &B);
 
 CSRMatrix restrict(const CSRMatrix &AFine, size_t N);

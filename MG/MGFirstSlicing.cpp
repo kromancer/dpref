@@ -7,6 +7,7 @@
 #include "CSRMatrix.h"
 #include "Queue.h"
 #include "Utils.h"
+#include "smooth.h"
 
 using namespace std;
 
