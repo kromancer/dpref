@@ -5,24 +5,34 @@
 
 using namespace std;
 
-// Function for smoothing using Gauss-Seidel
+// Smooth using a single iteration of the Gauss-Seidel
 void smooth(const CSRMatrix &A, vector<double> &X, vector<double> &B) {
 
   size_t N = X.size();
+  assert(B.size() == N);
+  assert(A.Offsets.size() == N + 1);
 
   for (int Row = 0; Row < N; ++Row) {
+
     double Sum = 0.0;
+    double DiagVal = 0.0;
+
     for (size_t Idx = A.Offsets[Row]; Idx < A.Offsets[Row + 1]; ++Idx) {
+
       size_t Col = A.ColIdx[Idx];
-      Sum += A.Values[Idx] * X[Col];
+      double AVal = A.Values[Idx];
+
+      // Excludes the diagonal contribution from Sum
+      if (Col == Row) {
+        DiagVal = AVal;
+        continue;
+      }
+
+      Sum += AVal * X[Col];
+
     }
 
-    // Exclude the diagonal contribution from Sum
-    Sum -= A.Values[A.Offsets[Row]] * X[Row];
-
-    // Update X[Row] using Gauss-Seidel formula
-    X[Row] = (B[Row] - Sum + A.Values[A.Offsets[Row]] * X[Row]) /
-             A.Values[A.Offsets[Row]];
+    X[Row] = (B[Row] - Sum) / DiagVal;
   }
 }
 
