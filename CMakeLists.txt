@@ -12,4 +12,4 @@ add_subdirectory(Queue)
 add_subdirectory(Vertex)
 add_subdirectory(SpMV)
 add_subdirectory(BFS)
-
+add_subdirectory(MG)
